@@ -4,7 +4,19 @@ from .models import Question
 
 
 def index(request):
-    return render(request, 'index.html')
+    questions = Question.objects.all()  # 데이터 베이스에 있는 전체 정보를 불러옴
+    context = {
+        'questions': questions
+    }
+    return render(request, 'index.html', context)  # 그 정보를 딕셔너리에 담아서 인덱스에 넘겨줌
+
+
+def detail(request, id):
+    question = Question.objects.get(id=id)
+    context = {
+        'question': question,
+    }
+    return render(request, 'detail.html', context)
 
 
 def create(request):
