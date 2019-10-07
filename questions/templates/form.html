@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body %}
+  <div class="container w-50 my-3"> <!-- container 는 좌우 마진을 자동으로 맞춰줌-->
+    <form action="" method="POST">
+      {% csrf_token %} <!-- 내가 발행한거라는걸 알리기 위해 적어줘야한다. -->
+      <textarea class="form-control" name="content" id="" rows="5" placeholder="질문을 남겨주세요"></textarea> <!-- placeholder는 클릭하면 사라짐 -->
+      <input class="btn btn-danger" type="submit">
+    </form>
+  </div>
+{% endblock %}
